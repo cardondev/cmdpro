@@ -1,0 +1,172 @@
+/* ============================================================
+   CMDPRO — Design tokens
+   Ported from the house design system (Catppuccin Mocha colour
+   science + Apple-HIG geometry) with the accent switched to
+   pastel green. Every theme in themes.css re-declares the SAME
+   custom-property names, so components never hard-code colour.
+   ============================================================ */
+
+:root, [data-theme="catppuccin-mocha"] {
+
+  /* ---- Surfaces (low → high) ---- */
+  --bg-crust:    #11111B;
+  --bg-mantle:   #181825;
+  --bg-base:     #1E1E2E;
+  --bg-s0:       #313244;
+  --bg-s1:       #45475A;
+  --bg-s2:       #585B70;
+
+  /* ---- Overlays & text (low → high contrast) ---- */
+  --ov0:         #6C7086;
+  --ov1:         #7F849C;
+  --ov2:         #9399B2;
+  --sub0:        #A6ADC8;
+  --sub1:        #BAC2DE;
+  --tx:          #CDD6F4;
+
+  /* ---- Brand accent (pastel green) ---- */
+  --accent:      #A6E3A1;
+  --accent-dim:  rgba(166, 227, 161, 0.15);
+  --accent-glow: rgba(166, 227, 161, 0.12);
+  --accent-ring: rgba(166, 227, 161, 0.35);
+  --accent-on:   #11111B;
+
+  /* ---- Extended pastel palette ---- */
+  --rosewater:   #F5E0DC;
+  --mauve:       #CBA6F7;
+  --lavender:    #B4BEFE;
+  --blue:        #89B4FA;
+  --sapphire:    #74C7EC;
+  --teal:        #94E2D5;
+  --green:       #A6E3A1;
+  --yellow:      #F9E2AF;
+  --peach:       #FAB387;
+  --maroon:      #EBA0AC;
+  --red:         #F38BA8;
+  --pink:        #F5C2E7;
+
+  /* ---- Borders (subtle → strong) ---- */
+  --border-sub:  rgba(205, 214, 244, 0.05);
+  --border-def:  rgba(205, 214, 244, 0.08);
+  --border-str:  rgba(205, 214, 244, 0.13);
+
+  /* (semantic aliases live in the [data-theme] block below) */
+  --placeholder-x: 0;
+}
+
+/* Aliases that reference other tokens must be re-declared on every themed
+   element so nested previews ([data-theme] on a card) resolve correctly. */
+:root, [data-theme] {
+  color-scheme: dark;
+  --accent-fill:     var(--accent);
+  --text-primary:    var(--tx);
+  --text-secondary:  var(--sub0);
+  --text-muted:      var(--ov2);
+  --text-faint:      var(--ov1);
+  --text-on-accent:  var(--accent-on);
+  --text-link:       var(--accent);
+  --surface-page:    var(--bg-base);
+  --surface-card:    var(--bg-s0);
+  --surface-sunken:  var(--bg-mantle);
+  --surface-well:    var(--bg-crust);
+  --surface-control: var(--bg-s1);
+  --surface-track:   var(--bg-s2);
+  --focus-ring:      var(--accent-ring);
+
+  --status-success: var(--green);
+  --status-info:    var(--blue);
+  --status-warning: var(--peach);
+  --status-danger:  var(--red);
+  --status-draft:   var(--mauve);
+  --term-user:       var(--accent);
+  --term-glow:       0 0 0 transparent;
+  --statusbar-bg:    var(--accent-fill);
+  --statusbar-fg:    var(--accent-on);
+  --shadow-card: 0 2px 20px rgba(0, 0, 0, 0.4), 0 0 0 0.5px var(--border-def);
+  --shadow-up:   0 8px 40px rgba(0, 0, 0, 0.55), 0 0 0 0.5px var(--border-def);
+  --shadow-glow: 0 0 32px var(--accent-glow);
+}
+
+:root, [data-theme="catppuccin-mocha"] {
+  /* ---- Terminal palette (overridden per theme) ---- */
+  --term-bg:        #1E1E2E;
+  --term-fg:        #CDD6F4;
+  --term-dim:       #7F849C;
+  --term-cursor:    #F5E0DC;
+  --term-cursor-tx: #1E1E2E;
+  --term-sel:       rgba(147, 153, 178, 0.30);
+  --term-path:      #89B4FA;
+  --ansi-0:  #45475A; --ansi-1:  #F38BA8; --ansi-2:  #A6E3A1; --ansi-3:  #F9E2AF;
+  --ansi-4:  #89B4FA; --ansi-5:  #F5C2E7; --ansi-6:  #94E2D5; --ansi-7:  #BAC2DE;
+  --ansi-8:  #585B70; --ansi-9:  #F38BA8; --ansi-10: #A6E3A1; --ansi-11: #F9E2AF;
+  --ansi-12: #89B4FA; --ansi-13: #F5C2E7; --ansi-14: #94E2D5; --ansi-15: #A6ADC8;
+
+  /* ---- Typography ---- */
+  --font-sans:   'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:   'Cardondev Mono', ui-monospace, 'SF Mono', Menlo, Consolas, 'Courier New', monospace;
+  --font-arcade: 'Press Start 2P', 'Cardondev Mono', ui-monospace, monospace;
+
+  --weight-thin:    200;
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semi:    600;
+  --weight-bold:    700;
+
+  --text-caption:  11px;
+  --text-footnote: 12px;
+  --text-sm:       13px;
+  --text-body:     15px;
+  --text-subhead:  17px;
+  --text-title3:   22px;
+  --text-title2:   28px;
+  --text-title1:   34px;
+  --text-display:  42px;
+
+  --leading-tight:   1.05;
+  --leading-snug:    1.2;
+  --leading-normal:  1.6;
+
+  --tracking-display: -0.035em;
+  --tracking-title:   -0.02em;
+  --tracking-body:    -0.01em;
+  --tracking-eyebrow:  0.1em;
+  --tracking-mono:     0.04em;
+
+  /* ---- Spacing (4px grid) ---- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --pad-card: var(--space-6);
+  --topbar-h: 52px;
+  --content-max: 1120px;
+
+  /* ---- Radius (concentric) ---- */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   22px;
+  --radius-pill: 999px;
+
+  /* ---- Motion ---- */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:    0.12s;
+  --dur-base:    0.2s;
+  --dur-slow:    0.35s;
+  --press-scale: 0.97;
+
+  /* ---- Terminal sizing ---- */
+  --term-font-size: 15px;
+  --term-line: 1.45;
+}

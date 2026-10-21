@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" data-theme="catppuccin-mocha" data-crt="on">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CMDPRO — the command line arcade</title>
+  <meta name="description" content="CMDPRO is a retro arcade game for learning the command line, right in your browser. Solve bash challenges, earn gloriously silly certificates and collect companions.">
+  <meta name="theme-color" content="#1E1E2E">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CMDPRO — the command line arcade">
+  <meta property="og:description" content="Learn the shell one command at a time. 162 challenges, 8 terminal themes, 12 companions and certificates trusted by absolutely no browser.">
+  <meta property="og:image" content="assets/brand/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/brand/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/themes.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/terminal.css">
+  <link rel="stylesheet" href="styles/screens.css">
+  <link rel="stylesheet" href="styles/holiday.css">
+  <link rel="stylesheet" href="styles/print.css">
+  <script src="src/theme-init.js"></script>
+  <link rel="modulepreload" href="src/main.js">
+</head>
+<body>
+  <a class="skip-link" href="#app">Skip to content</a>
+  <div id="app"></div>
+  <noscript>
+    <div style="font-family:monospace;padding:2rem;color:#CDD6F4;background:#1E1E2E">
+      bash: javascript: command not found<br>
+      CMDPRO runs a whole bash emulator in your browser — please enable JavaScript.
+    </div>
+  </noscript>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

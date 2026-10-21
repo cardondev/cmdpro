@@ -1,0 +1,103 @@
+/* ============================================================
+   CMDPRO — self-hosted webfonts (no network needed at runtime)
+   URLs are relative to this file. All fonts: SIL OFL 1.1
+   (license texts sit next to the font files; see CREDITS.md).
+
+   Families:
+     'Geist Sans'     300 400 500 600 700  — UI / body
+     'Cardondev Mono' 400 700 (+ italics)   — terminal, code, metrics
+     'Press Start 2P' 400                  — arcade display moments only
+
+   Suggested stacks:
+     --font-sans:   'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+     --font-mono:   'Cardondev Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+     --font-arcade: 'Press Start 2P', 'Cardondev Mono', monospace;
+   Cardondev Mono by cardondev (github.com/cardondev/cardondev-fonts)
+   is subset to Latin, punctuation, arrows, math, box drawing, blocks, shapes, symbols and
+   dingbats, plus a handful of its Nerd Font icons the game uses (holiday prompt glyphs).
+   ============================================================ */
+
+/* ---- Geist Sans (Vercel) — Fontsource @fontsource/geist-sans@5.3.0 ---- */
+@font-face {
+  font-family: 'Geist Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('./geist-sans-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./geist-sans-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./geist-sans-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./geist-sans-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./geist-sans-700.woff2') format('woff2');
+}
+
+/* ---- Cardondev Mono (Cardondev) — github.com/cardondev/cardondev-fonts v1.0, TTF→subset WOFF2 (SIL OFL 1.1) ---- */
+@font-face {
+  font-family: 'Cardondev Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./cardondev-mono-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cardondev Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./cardondev-mono-bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cardondev Mono';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./cardondev-mono-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cardondev Mono';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./cardondev-mono-bolditalic.woff2') format('woff2');
+}
+
+/* ---- Press Start 2P (CodeMan38) — Fontsource @fontsource/press-start-2p@5.3.0 ---- */
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./press-start-2p-latin-ext-400.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./press-start-2p-latin-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

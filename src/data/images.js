@@ -1,0 +1,73 @@
+// "History of the terminal" images for loading tips / briefings / credits.
+// Paths are relative to index.html. All from Wikimedia Commons; each was
+// resized (max 800px wide) and converted to WebP — that is the only change.
+// Show `credit` + `license` wherever an image is displayed (CC BY/BY-SA require it).
+
+export const IMAGES = [
+  {
+    id: 'vt100',
+    file: 'assets/img/vt100.webp',
+    width: 800, height: 710,
+    alt: 'A beige DEC VT100 video terminal with a green-on-black screen and a detached keyboard',
+    caption: 'DEC VT100 (1978). Its escape codes — ESC[31m for red, ESC[2J to clear the screen — became the ANSI standard your terminal still speaks today.',
+    credit: 'Jason Scott',
+    license: 'CC BY 2.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by/2.0/',
+    source: 'https://commons.wikimedia.org/wiki/File:DEC_VT100_terminal.jpg',
+  },
+  {
+    id: 'teletype-asr33',
+    file: 'assets/img/teletype-asr33.webp',
+    width: 800, height: 600,
+    alt: 'A Teletype Model 33 ASR: a cream-colored printing terminal with a paper roll and paper-tape punch',
+    caption: 'Teletype Model 33 ASR (1963). It is why your terminal is still called a "tty", why \\r and \\n are two different characters, and why Unix commands are so short: it printed 10 characters per second.',
+    credit: 'ArnoldReinhold',
+    license: 'CC BY-SA 3.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
+    source: 'https://commons.wikimedia.org/wiki/File:ASR-33_at_CHM.agr.jpg',
+  },
+  {
+    id: 'punched-card',
+    file: 'assets/img/punched-card.webp',
+    width: 800, height: 350,
+    alt: 'A used 80-column punched card with rows of rectangular holes',
+    caption: 'One punched card = one line of code, 80 columns wide. Ever wondered why terminals default to 80 columns? Meet the grandparent of $COLUMNS.',
+    credit: 'Pete Birkinshaw',
+    license: 'CC BY 2.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by/2.0/',
+    source: 'https://commons.wikimedia.org/wiki/File:Used_Punchcard_(5151286161).jpg',
+  },
+  {
+    id: 'ibm-3278',
+    file: 'assets/img/ibm-3278.webp',
+    width: 800, height: 600,
+    alt: 'An IBM 3278 mainframe display terminal with its keyboard, in a museum',
+    caption: 'IBM 3278 (3270 family, late 1970s). Mainframe "green screens" sent a whole screenful at a time; their phosphor glow is what the Terminal Green theme is paying tribute to.',
+    credit: 'Marcin Wichary',
+    license: 'CC BY 2.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by/2.0/',
+    source: 'https://commons.wikimedia.org/wiki/File:IBM_3278_terminal.jpg',
+  },
+  {
+    id: 'thompson-ritchie',
+    file: 'assets/img/thompson-ritchie.webp',
+    width: 310, height: 201,
+    alt: 'Black-and-white photo of Ken Thompson and Dennis Ritchie, both bearded and smiling',
+    caption: 'Ken Thompson (left) and Dennis Ritchie (right) created Unix at Bell Labs in 1969. Thompson also wrote the first Unix shell; pipes arrived in 1973 at Doug McIlroy\'s urging.',
+    credit: 'Unknown author (from the Jargon File)',
+    license: 'Public domain',
+    licenseUrl: 'https://commons.wikimedia.org/wiki/File:Ken_Thompson_and_Dennis_Ritchie--1973.jpg',
+    source: 'https://commons.wikimedia.org/wiki/File:Ken_Thompson_and_Dennis_Ritchie--1973.jpg',
+  },
+  {
+    id: 'v7-unix-shell',
+    file: 'assets/img/v7-unix-shell.webp',
+    width: 652, height: 416,
+    alt: 'Screenshot of Version 7 Unix in a terminal window listing kernel files and /bin/sh',
+    caption: 'Version 7 Unix (1979) in the SIMH emulator. Its /bin/sh — the Bourne shell, ancestor of bash, the "Bourne-Again SHell" — weighed just 17,310 bytes.',
+    credit: 'Huihermit',
+    license: 'CC0 1.0',
+    licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
+    source: 'https://commons.wikimedia.org/wiki/File:Version_7_UNIX_SIMH_PDP11_Kernels_Shell.png',
+  },
+];

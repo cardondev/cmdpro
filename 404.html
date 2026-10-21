@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404: command not found — CMDPRO</title>
+  <meta name="robots" content="noindex">
+  <style>
+    html, body { margin: 0; height: 100%; background: #11111B; color: #CDD6F4; font: 15px/1.6 ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+    main { max-width: 720px; margin: 0 auto; padding: 12vh 24px; }
+    .p { color: #A6E3A1; font-weight: 700; } .d { color: #89B4FA; font-weight: 700; } .e { color: #F38BA8; } .m { color: #7F849C; }
+    a { color: #A6E3A1; }
+    .cur { display: inline-block; width: .6em; background: #F5E0DC; animation: b 1s steps(1) infinite; }
+    @keyframes b { 50% { opacity: 0; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div><span class="p">player@cmdpro</span>:<span class="d">~</span>$ cd <span id="path"></span></div>
+    <div class="e">bash: cd: <span id="path2"></span>: No such file or directory</div>
+    <div class="m"># 404: this page does not exist. Teleporting you back to the arcade…</div>
+    <div><span class="p">player@cmdpro</span>:<span class="d">~</span>$ <a id="home" href="./">cd ~</a> <span class="cur">&nbsp;</span></div>
+  </main>
+  <script>
+    (function () {
+      var p = location.pathname;
+      document.getElementById('path').textContent = p;
+      document.getElementById('path2').textContent = p;
+      // Find the app root: try each parent path for the PWA manifest
+      // (works for GitHub Pages project sites under /<repo>/ and for / hosting).
+      var parts = p.split('/').filter(Boolean);
+      var candidates = [];
+      for (var i = parts.length - 1; i >= 1; i--) candidates.push('/' + parts.slice(0, i).join('/') + '/');
+      candidates.push('/');
+      function go(base) {
+        document.getElementById('home').setAttribute('href', base);
+        setTimeout(function () { location.replace(base + (location.hash || '')); }, 2200);
+      }
+      (function tryNext(k) {
+        if (k >= candidates.length) return go('/');
+        fetch(candidates[k] + 'manifest.webmanifest', { method: 'HEAD' })
+          .then(function (r) { r.ok ? go(candidates[k]) : tryNext(k + 1); })
+          .catch(function () { tryNext(k + 1); });
+      })(0);
+    })();
+  </script>
+</body>
+</html>

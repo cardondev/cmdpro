@@ -1,0 +1,342 @@
+// Companions: they join from challenge #4 and rotate every 2 challenges.
+// Placeholders: {player} handle, {hint} hint text, {cmd} last command.
+// `hint` lines deliver hints (Easy/Normal); `cheer` replaces them on Hard/Extreme.
+
+export const COMPANIONS = [
+  {
+    id: 'cat', name: 'Sudo', species: 'cat', color: 'var(--peach)',
+    tagline: 'Does not ask for permission.',
+    lines: {
+      join: ['Sudo the cat has joined your party. Sudo does not ask for permission.', 'A cat walked onto your keyboard. It is now Sudo\'s keyboard. You may borrow it.'],
+      correct: ['Sudo slow-blinks at you. That is the highest honor a cat can give.', 'Purr-fect. Sudo will allow it.', 'Sudo knocked your command off the table. It landed correctly.'],
+      wrong: ['Sudo stares at the error like it owes him tuna.', 'Sudo is disappointed, but also already asleep.', 'Hiss. Try again, human.'],
+      idle: ['Sudo is sitting on the Ctrl key. Please type around him.', 'Fun fact: cats invented `sleep`. Sudo has been running it for 14 hours.', 'Sudo suggests `ls -a`. Sudo likes hidden places.'],
+      hint: ['Sudo pushes a sticky note off the desk. It says: {hint}', 'Mid-yawn, Sudo whispers: {hint}'],
+      cheer: ['Sudo watches silently. Judging. Supportively.', 'Sudo is purring. That is either support or a hairball.'],
+      gameover: ['Sudo walked across the keyboard and typed `:q!`. It\'s over.', 'Sudo has decided this was your fault.'],
+    },
+  },
+  {
+    id: 'dog', name: 'Bash', species: 'dog', color: 'var(--yellow)',
+    tagline: 'Who\'s a good shell? Bash is a good shell.',
+    lines: {
+      join: ['Bash the dog bounds in! Who\'s a good shell? BASH is a good shell!', 'Bash has joined your party and brought his favorite ball (it\'s a `.tar.gz`).'],
+      correct: ['BORK! Exit code 0! Bash does zoomies around the server rack.', 'Bash fetched your output. It\'s correct! He\'s SO proud.', 'Tail wag velocity: maximum.'],
+      wrong: ['Bash tilts his head. He still loves you. The parser doesn\'t.', 'Bash brings you the error message. It\'s a little slobbery.', 'It\'s okay! Bash also chases his own tail sometimes.'],
+      idle: ['Bash dropped a ball on your keyboard. It landed on Tab. Autocomplete is a good boy too.', 'Bash wants to go for a walk. `find` is basically a walk through directories!', 'Pro tip from Bash: `history` remembers everything. Like a dog remembers where the treats are.'],
+      hint: ['Bash dug up a hint in the backyard: {hint}', 'Bash brings you a hint, tail wagging: {hint}'],
+      cheer: ['Bash believes in you with his whole heart. No hints, just love.', 'Bash is sitting very, very still. For focus.'],
+      gameover: ['Bash covers his eyes with his paws.', 'Bash is sad, but he\'ll be right here when you retry.'],
+    },
+  },
+  {
+    id: 'lion', name: 'Lionux', species: 'lion', color: 'var(--yellow)',
+    tagline: 'King of /root.',
+    lines: {
+      join: ['Lionux, King of /root, joins your pride. ROAR (politely).', 'A lion appears. He has root, and a magnificent mane.'],
+      correct: ['Lionux roars approvingly. The whole data center hears it.', 'Royal decree: that command is now law.', 'Lionux nods. Kingly. Majestic. Correct.'],
+      wrong: ['Lionux sighs the sigh of a disappointed monarch.', 'Even kings get permission denied sometimes.', 'Lionux suggests reading the error. Slowly. Like royalty.'],
+      idle: ['Lionux is guarding /root. Nobody gets in without `sudo`.', 'In the wild, lions sleep 20 hours a day. Lionux runs `sleep 72000` daily.', 'Lionux reminds you: the man pages are your kingdom\'s library.'],
+      hint: ['Lionux unrolls a royal scroll: {hint}', 'By order of the King: {hint}'],
+      cheer: ['Lionux stands tall beside you. No hints from royalty — only courage.', 'Lionux is watching your back. And your syntax.'],
+      gameover: ['The King has fallen. Long live the next attempt.', 'Lionux lowers his crown. Briefly.'],
+    },
+  },
+  {
+    id: 'tiger', name: 'Tee-ger', species: 'tiger', color: 'var(--peach)',
+    tagline: 'Splits output both ways.',
+    lines: {
+      join: ['Tee-ger pounces in! Named after `tee`: he sends everything to two places at once.', 'A tiger joins your party. His stripes are perfectly tab-separated.'],
+      correct: ['Tee-ger copies your success to stdout AND a file. For the archives.', 'GRRREAT. That was striped with perfection.', 'Tee-ger does a little victory pounce.'],
+      wrong: ['Tee-ger sends your output to /dev/null. Out of kindness.', 'Grr. Something in that pipeline needs taming.', 'Tee-ger suggests splitting the problem in two. Like his favorite command.'],
+      idle: ['`cmd | tee file.txt` shows output AND saves it. Tee-ger\'s favorite trick.', 'Tee-ger counts his stripes with `wc -l`. There are 42.', 'Tigers are ambush hunters. Read the whole description before you strike.'],
+      hint: ['Tee-ger tees you a hint: {hint}', 'Tee-ger growls softly: {hint}'],
+      cheer: ['Tee-ger is crouched, ready. No hints, just intensity.', 'Tee-ger\'s eyes say: you\'ve got this.'],
+      gameover: ['Tee-ger tees the bad news to stdout and stderr.', 'Tee-ger curls up next to the crash dump.'],
+    },
+  },
+  {
+    id: 'jaguar', name: 'Jag', species: 'jaguar', color: 'var(--yellow)',
+    tagline: 'No relation to Mac OS X 10.2.',
+    lines: {
+      join: ['Jag the jaguar slinks in. No relation to Mac OS X 10.2. Stop asking.', 'A jaguar joins. Sleek, silent, and allergic to GUIs.'],
+      correct: ['Jag purrs in a low, expensive-sounding way.', 'Smooth. Jag would have done it in fewer keystrokes, but smooth.', 'Jag approves. That is rarer than a clean `git status`.'],
+      wrong: ['Jag yawns. A big, dramatic, judgmental yawn.', 'Jag thinks you rushed. Jaguars never rush. They wait, then strike.', 'Not quite. Jag has seen better. Jag has also seen worse.'],
+      idle: ['Jag is lounging on a server. It\'s warm up there.', 'Jaguars are great swimmers. Jag swims through pipes.', 'Jag recommends `--help`. Even apex predators read docs.'],
+      hint: ['Jag flicks his tail toward the answer: {hint}', 'Jag murmurs, very cool about it: {hint}'],
+      cheer: ['Jag says nothing. Jag believes, quietly.', 'Jag is pretending not to care. He cares.'],
+      gameover: ['Jag walks away slowly, as if this never happened.', 'Jag will tell no one. Probably.'],
+    },
+  },
+  {
+    id: 'leopard', name: 'Spot', species: 'leopard', color: 'var(--peach)',
+    tagline: 'Spots typos instantly.',
+    lines: {
+      join: ['Spot the leopard joins! Spot spots typos. It\'s his whole thing.', 'A leopard appears. Also not a Mac. Also judging your spelling.'],
+      correct: ['Spot found zero typos. Spot is thrilled.', 'Spotless! Get it? Spot gets it.', 'Spot gives you a gold star. It has spots on it.'],
+      wrong: ['Spot spotted a problem. Then another. Then he lost count.', 'Spot squints at your command. Something is off.', 'Spot suggests checking quotes, spaces and the file name. In that order.'],
+      idle: ['A leopard can\'t change its spots. A shell can change its prompt with `PS1`.', 'Spot recommends Tab completion: it makes typos physically impossible.', 'Spot reads error messages carefully. They usually tell you exactly what\'s wrong.'],
+      hint: ['Spot points a paw at something: {hint}', 'Spot spotted this for you: {hint}'],
+      cheer: ['Spot is watching for typos. Silently. Supportively.', 'Spot believes in your spelling.'],
+      gameover: ['Spot spotted the end. Sorry.', 'Spot sits by the wreckage, licking a paw thoughtfully.'],
+    },
+  },
+  {
+    id: 'cheetah', name: 'Turbo', species: 'cheetah', color: 'var(--yellow)',
+    tagline: 'Fastest grep in the west.',
+    lines: {
+      join: ['Turbo the cheetah zooms in at 120 km/h. Nobody saw him arrive.', 'A cheetah joins! He already finished the next three challenges. Just kidding. Probably.'],
+      correct: ['FAST! Turbo clocked that at 0.2 seconds. Respect.', 'Turbo high-fives you so hard the logs rotate.', 'Speedrun-worthy. Turbo is taking notes.'],
+      wrong: ['Too fast! Turbo says slow down and read the output.', 'Turbo tripped over a pipe. It happens to the best.', 'Speed is nothing without accuracy, says the fastest land animal.'],
+      idle: ['Turbo is tapping his foot. Very fast.', 'Turbo\'s tip: `!!` reruns your last command in a real shell. Speed!', 'Turbo uses `Ctrl+A` and `Ctrl+E` to zip around the line. Try it.'],
+      hint: ['Turbo blurts out, very quickly: {hint}', 'Turbo zooms by and drops a note: {hint}'],
+      cheer: ['Turbo is stretching. He\'ll pace you. No hints though.', 'Turbo whispers: fast, but careful.'],
+      gameover: ['Turbo ran out of road.', 'Turbo will be back in 0.3 seconds. So will you.'],
+    },
+  },
+  {
+    id: 'wolf', name: 'Daemon', species: 'wolf', color: 'var(--lavender)',
+    tagline: 'Runs in the background. Howls at /dev/moon.',
+    lines: {
+      join: ['Daemon the wolf emerges from the background process list. He howls at /dev/moon.', 'A wolf joins your pack. He has PID 1 energy.'],
+      correct: ['AWOOO! The pack is pleased.', 'Daemon logs your success to syslog. Forever.', 'Daemon nods. The pack grows stronger.'],
+      wrong: ['Daemon growls at the error. The error does not care.', 'The pack does not leave anyone behind. Try again.', 'Daemon sniffs the output. Something smells wrong.'],
+      idle: ['Daemon is running quietly in the background. Like all good daemons.', 'Wolves hunt as a pack; commands hunt as a pipeline.', 'Daemon\'s tip: `&` sends a job to the background. Daemon lives there.'],
+      hint: ['Daemon howls something that sounds like: {hint}', 'From the shadows, Daemon whispers: {hint}'],
+      cheer: ['Daemon circles you, protective. No hints. Only the hunt.', 'Daemon\'s eyes glow in the dark. Encouragingly.'],
+      gameover: ['Daemon howls a mournful kernel panic.', 'The pack will regroup. Restart the hunt.'],
+    },
+  },
+  {
+    id: 'parrot', name: 'Echo', species: 'parrot', color: 'var(--green)',
+    tagline: 'Repeats your last command.',
+    lines: {
+      join: ['Echo the parrot lands on your shoulder. SQUAWK! ECHO! ECHO!', 'A parrot named Echo joins your party. Guess what she does.'],
+      correct: ['SQUAWK! `{cmd}`! CORRECT! SQUAWK!', 'Echo repeats your winning command to everyone. Twice.', 'Pretty bird! Pretty pipeline!'],
+      wrong: ['SQUAWK! `{cmd}`? WRONG! SQUAWK!', 'Echo repeats your mistake. Loudly. For learning purposes.', 'Polly wants a correct answer.'],
+      idle: ['SQUAWK! `echo` prints things! ECHO PRINTS THINGS!', 'Echo is chewing on an Ethernet cable. Do not worry about it.', 'Echo says: `echo $?` shows the last exit code! SQUAWK!'],
+      hint: ['SQUAWK! HINT! {hint} SQUAWK!', 'Echo repeats something she overheard from a senior engineer: {hint}'],
+      cheer: ['Echo is silent. For once. Out of respect for Hard mode.', 'SQUAWK! (That means good luck.)'],
+      gameover: ['Echo repeats: GAME OVER. GAME OVER. GAME OVER.', 'SQUAWK. Segfault. SQUAWK.'],
+    },
+  },
+  {
+    id: 'fish', name: 'Fish', species: 'fish', color: 'var(--sapphire)',
+    tagline: 'No, not *that* fish shell.',
+    lines: {
+      join: ['Fish has joined your party. No, not THAT fish shell. A regular fish. Blub.', 'A fish in a bowl joins you. It has a three-second memory and a heart of gold.'],
+      correct: ['Blub blub! (That means "exit code 0".)', 'Fish does a happy loop around the bowl.', 'Fish forgot what just happened, but feels great about it.'],
+      wrong: ['Blub. Fish suggests `history` — Fish forgets things too.', 'Fish blows a sad bubble.', 'Fish is not mad. Fish has already forgotten.'],
+      idle: ['Fish has been swimming in circles. Kind of like a `while true` loop.', 'Fish\'s cousin is a friendly interactive shell. They don\'t talk.', 'Blub. (Fish says: try `grep -v` to filter things OUT.)'],
+      hint: ['Fish blows a bubble. Inside it, a hint: {hint}', 'Blub blub — which translates to: {hint}'],
+      cheer: ['Fish is cheering in bubbles. No hints, just bubbles. o O o', 'Fish believes in you. For about three seconds at a time, repeatedly.'],
+      gameover: ['Fish floats... upside down? No, just resting. Try again.', 'Blub. Game over. Fish already forgot. You can too.'],
+    },
+  },
+  {
+    id: 'rock', name: 'Rocky', species: 'rock', color: 'var(--ov2)',
+    tagline: 'Enterprise-grade stability. Does nothing. Never crashes.',
+    lines: {
+      join: ['Rocky the rock has joined your party. Enterprise-grade stability. 99.999% uptime.', 'A rock joins you. It does nothing. It has never crashed.'],
+      correct: ['Rocky remains stable.', 'Rocky did not move. That is how Rocky celebrates.', '...(Rocky is very proud. You can tell.)'],
+      wrong: ['Rocky remains stable. Unlike your last command.', 'Rocky has seen empires rise and fall. This is fine.', '...'],
+      idle: ['Rocky is running the most reliable process ever: nothing.', 'Rocky has been certified for long-term support until the year 4,000,000,000.', 'Rocky suggests patience. Rocky is very good at patience.'],
+      hint: ['Rocky says nothing, but a hint is carved on its side: {hint}', 'Underneath Rocky, a note: {hint}'],
+      cheer: ['Rocky remains stable. For you.', 'Rocky is with you. Rocky is always with you. Rocky cannot move.'],
+      gameover: ['Rocky remains stable. You did not. That\'s okay.', 'Rocky has outlived worse.'],
+    },
+  },
+  {
+    id: 'minicomputer', name: 'B00P', species: 'mini computer', color: 'var(--teal)',
+    tagline: 'A tiny teal computer who loves video games.',
+    lines: {
+      join: ['B00P powers on! "BEEP BOOP! Let\'s play video games! Oh wait, we ARE!"', 'A tiny teal computer joins your party. Its screen shows a big smile: :)'],
+      correct: ['B00P\'s screen flashes: HIGH SCORE!!! :D', 'BEEP BOOP! That output is mathematically delicious!', 'B00P plays a tiny victory song: do-do-DOOO!'],
+      wrong: ['B00P\'s screen shows :( then quickly :) because you can do it!', 'BOOP? The output does not compute. Try again, friend!', 'B00P suggests rebooting your brain. Gently.'],
+      idle: ['B00P is running at 4 MHz and loving every cycle.', 'B00P\'s favorite command is `yes`. It\'s very positive.', 'B00P says: the terminal is the best video game ever made.'],
+      hint: ['B00P prints a hint on its tiny screen: {hint}', 'BEEP! Hint protocol activated: {hint}'],
+      cheer: ['B00P is cheering in 8-bit. No hints in this mode — only BEEPS of support.', 'B00P\'s screen shows: YOU CAN DO IT (in Comic Sans).'],
+      gameover: ['B00P\'s screen goes blue for a second. Then: "Try again?"', 'B00P plays the sad trombone in 8-bit.'],
+    },
+  },
+];
+
+// ---------------------------------------------------------------- holiday edition characters
+// `edition` keeps them out of the regular rotation: they only show up in their own edition.
+COMPANIONS.push(
+  // Halloween — Night of the Living Shell
+  {
+    id: 'zed', edition: 'halloween', name: 'Zed', species: 'zombie', color: 'var(--green)',
+    tagline: 'Undead sysadmin. Still on call.',
+    lines: {
+      join: ['Zed shambles in, coffee mug first. "Braaains… I mean, bash. I always mean bash."', 'Zed the zombie sysadmin has joined your party. He has been on call since 1987. He is fine.'],
+      correct: ['"BRAAAINS!" Zed is impressed. That was a very brainy command.', 'Zed gives you a thumbs up. It stays attached. Mostly.', 'Zed logs your success in the crypt-ographic audit trail.'],
+      wrong: ['Zed groans. It is hard to tell if that is disappointment or just his resting state.', '"Uuuurgh," says Zed, which roughly translates to "check the quoting."', 'Zed has seen worse. Zed has BEEN worse.'],
+      idle: ['Zed reminds you: an orphaned process is not the same as a zombie process. He would know.', 'Zed is slowly reaching for the keyboard. Very slowly. You have time.', 'Zed\'s tip: `ls -a` shows the dotfiles. The dead love to hide in dotfiles.'],
+      hint: ['Zed scrawls on a tombstone: {hint}', 'Zed moans something that sounds like: {hint}'],
+      cheer: ['Zed is cheering. It sounds exactly like groaning, but with more enthusiasm.', 'Zed believes in you. Undyingly.'],
+      gameover: ['Zed shrugs. "Death is not the end. Try again."', 'Zed knows a thing or two about coming back. So will you.'],
+    },
+  },
+  {
+    id: 'boolean', edition: 'halloween', name: 'Boo-lean', species: 'ghost', color: 'var(--tx)',
+    tagline: 'Only ever true or false. Mostly boo.',
+    lines: {
+      join: ['Boo-lean floats through the wall. "BOO! …that is short for Boolean. I am only ever true or false."', 'A ghost joins your party. It evaluates to true. Spookily.'],
+      correct: ['Boo-lean glows: TRUE! The exit code is 0, and so is the fear.', 'Boo-lean does a happy loop around the chandelier.', 'BOO-yah! (A rare ghostly celebration.)'],
+      wrong: ['Boo-lean flickers: FALSE. Not scary, just false.', 'Boo-lean passes straight through your command. Something is missing.', 'Boooo. (Constructively.)'],
+      idle: ['Boo-lean whispers: `[[ -f file ]]` is true when the file exists. Ghosts love existential questions.', 'Boo-lean is haunting /dev/null. It is very quiet in there.', 'Boo-lean tip: `&&` runs the next command only when the first one is true.'],
+      hint: ['Boo-lean writes in the fog on the screen: {hint}', 'A chill runs down your spine. Then a hint: {hint}'],
+      cheer: ['Boo-lean is rooting for you. True story.', 'Boo-lean hovers nearby, supportively translucent.'],
+      gameover: ['Boo-lean fades to FALSE. Give it another try.', 'Boo-lean will haunt this challenge until you come back.'],
+    },
+  },
+  {
+    id: 'batch', edition: 'halloween', name: 'Batch', species: 'bat', color: 'var(--mauve)',
+    tagline: 'Only runs jobs after dark.',
+    lines: {
+      join: ['Batch the bat swoops in upside down. "I only run jobs after dark. Lucky you: it is midnight."', 'A bat joins your party and immediately hangs from the status bar.'],
+      correct: ['Batch\'s sonar pings back: perfect output!', 'Batch does a victory loop around the moon.', 'Echolocation confirms it: correct.'],
+      wrong: ['Batch\'s sonar returned something weird. Listen to the error.', 'Batch flaps nervously. Something in that pipeline is upside down. (Batch likes upside down. The judge does not.)', 'Not quite. Batch suggests `cat -A` to see the invisible things.'],
+      idle: ['Batch is hanging from the top of the terminal. Please do not scroll too fast.', 'Batch tip: `rev` prints every line backwards. Bats read that way naturally.', 'Batch suggests running long jobs in the background with `&`. Batch is very nocturnal about it.'],
+      hint: ['Batch squeaks at a frequency only hints can reach: {hint}', 'Batch drops a scroll from the rafters: {hint}'],
+      cheer: ['Batch is hanging around. Supportively.', 'Batch flaps once for good luck.'],
+      gameover: ['Batch flies off into the night. He will be back at dusk.', 'Batch is upside down, which is also how this went.'],
+    },
+  },
+  {
+    id: 'jack', edition: 'halloween', name: 'Jack O\'Latency', species: 'jack-o\'-lantern', color: 'var(--peach)',
+    tagline: 'Lights up slowly. But he lights up.',
+    lines: {
+      join: ['Jack O\'Latency flickers on… … … there he is. "Sorry. High latency. Hello!"', 'A jack-o\'-lantern joins your party, grinning from ear to ear (he has no ears).'],
+      correct: ['Jack\'s candle flares: CORRECT! (It took a second to reach him.)', 'Jack beams. Literally. There is a candle in there.', 'Gourd job! Jack is very proud of that pun.'],
+      wrong: ['Jack\'s light dims a little. You can relight it.', 'Jack carved a little frown. It is temporary.', 'Hmm. Jack thinks the seeds of a better command are in there somewhere.'],
+      idle: ['Jack is still processing your last keystroke. Latency, you know.', 'Jack tip: `time` measures how long a command takes. Jack refuses to use it on himself.', 'Jack\'s favourite command is `tail -f`: it waits patiently, like a candle.'],
+      hint: ['Jack flickers a hint in Morse code. Translated: {hint}', 'Inside Jack, carved on the wall: {hint}'],
+      cheer: ['Jack glows warmly. No hints, just light.', 'Jack is grinning at you. He is always grinning, but this time he means it.'],
+      gameover: ['Jack\'s candle goes out. Matches are in the drawer. Try again.', 'Jack is a little mushy about it. Pumpkins are like that in November.'],
+    },
+  },
+  // Thanksgiving — Thanksgrepping
+  {
+    id: 'gobbles', edition: 'thanksgiving', name: 'Sir Gobbles', species: 'turkey', color: 'var(--peach)',
+    tagline: 'Kernel of the feast. Absolutely not the main course.',
+    lines: {
+      join: ['Sir Gobbles struts in with a clipboard. "Welcome to the Feast! I am the host. NOT the menu."', 'Sir Gobbles the turkey has joined your party and would like to discuss the vegetarian options.'],
+      correct: ['GOBBLE GOBBLE! That is turkey for "exit code zero".', 'Sir Gobbles fans his tail feathers in approval. Very majestic. Slightly dusty.', 'Sir Gobbles adds your command to the list of things he is thankful for.'],
+      wrong: ['Sir Gobbles tilts his head. "That command is a little undercooked."', 'Gobble? (That is a question.)', 'Sir Gobbles suggests basting it with a few more flags.'],
+      idle: ['Sir Gobbles is double-checking the guest list with `sort | uniq -d`. Aunt May RSVP\'d twice.', 'Sir Gobbles tip: `wc -l` counts guests faster than he can.', 'Sir Gobbles is hiding from the kitchen. Do not tell anyone where he is.'],
+      hint: ['Sir Gobbles reads from his clipboard: {hint}', 'Sir Gobbles leans in and whispers: {hint}'],
+      cheer: ['Sir Gobbles is cheering from behind the pumpkin pies. No hints — he believes in you.', 'Sir Gobbles salutes you with one wing.'],
+      gameover: ['Sir Gobbles is grateful you tried. Thanksgiving is about gratitude. Try again!', 'The feast is cancelled! …just kidding. Rerun it.'],
+    },
+  },
+  {
+    id: 'nutshell', edition: 'thanksgiving', name: 'Nutshell', species: 'squirrel', color: 'var(--yellow)',
+    tagline: 'Stashes everything in ~/.acorns.',
+    lines: {
+      join: ['Nutshell scampers in. "Hi! In a nutshell: I stash things. Mostly in `~/.acorns`."', 'A squirrel joins your party and immediately hides a file somewhere. You will never find it.'],
+      correct: ['Nutshell does a backflip! That is the squirrel equivalent of a standing ovation.', 'Nutshell stashes your command for the winter. It is a keeper.', 'In a nutshell: correct.'],
+      wrong: ['Nutshell chitters. Close, but you buried it in the wrong spot.', 'Nutshell forgot where she put the right answer too. Look again.', 'Not quite. Nutshell suggests `find` — she uses it to find her acorns.'],
+      idle: ['Nutshell has 4,096 acorns. She counted them with `ls ~/.acorns | wc -l`.', 'Nutshell tip: dotfiles are the best hiding spots. `ls -a` is the best seeker.', 'Nutshell is very busy. Squirrels are always very busy.'],
+      hint: ['Nutshell digs up a buried hint: {hint}', 'In a nutshell: {hint}'],
+      cheer: ['Nutshell is cheering at 300 chirps per minute.', 'Nutshell believes in you. She also believes in acorns. Both are correct.'],
+      gameover: ['Nutshell will bury this attempt and grow a better one in spring.', 'Nutshell drops her acorn in shock. Pick it up and try again.'],
+    },
+  },
+  {
+    id: 'pi', edition: 'thanksgiving', name: 'Pi', species: 'pumpkin pie', color: 'var(--peach)',
+    tagline: 'Always exactly 3.14 slices.',
+    lines: {
+      join: ['Pi the pumpkin pie rolls onto the table. "Hi! I come in exactly 3.14 slices. Do not ask how."', 'A pumpkin pie joins your party. It smells irrationally good.'],
+      correct: ['Pi is delighted! That command was as easy as… well, you know.', 'Pi awards you an extra slice. It is 0.14 of a slice. Enjoy.', 'Perfectly baked. Golden output, flaky edges.'],
+      wrong: ['Pi\'s crust crumbles a little. The filling is fine — check the edges.', 'Not quite. Pi suggests measuring twice with `wc` and cutting once.', 'That command needs a few more minutes in the oven.'],
+      idle: ['Pi tip: `bc -l` does math with decimals. Pi has opinions about decimals.', 'Pi is cooling on the windowsill. Do not touch.', 'Pi\'s favourite command is `printf "%.2f"`. It keeps things neat.'],
+      hint: ['Pi writes a hint in whipped cream: {hint}', 'Under the crust, a hint: {hint}'],
+      cheer: ['Pi is rooting for you, warmly. Fresh out of the oven.', 'Pi is cheering at exactly 3.14 cheers per second.'],
+      gameover: ['Pi got a little burned. Everyone gets a little burned sometimes.', 'Pi says: bake it again. Second pies are always better.'],
+    },
+  },
+  {
+    id: 'strawman', edition: 'thanksgiving', name: 'Strawman', species: 'scarecrow', color: 'var(--yellow)',
+    tagline: 'Argues with your arguments.',
+    lines: {
+      join: ['Strawman creaks to life. "So you are saying the answer is easy? Interesting. I disagree."', 'A scarecrow joins your party. The crows have filed a complaint.'],
+      correct: ['Strawman tries to argue with your answer. He cannot. It is correct.', 'Strawman concedes the point. This almost never happens.', 'The crows cheer. Strawman pretends he is not touched.'],
+      wrong: ['"So you are saying that command works?" says Strawman. "Because it does not."', 'Strawman found a hole in your argument. Probably a missing quote.', 'Strawman suggests reading the arguments very carefully. He would know.'],
+      idle: ['Strawman tip: `"$var"` in quotes keeps arguments with spaces in one piece.', 'Strawman is guarding the corn field from `rm -rf`.', 'Strawman is technically outstanding in his field.'],
+      hint: ['Strawman reluctantly admits: {hint}', 'Strawman points (stiffly) at something: {hint}'],
+      cheer: ['Strawman is arguing that you will do great. For once he is right.', 'Strawman stands tall. He has no choice, but still.'],
+      gameover: ['Strawman claims he saw that coming. He did not.', 'Strawman tips his hat. Hay happens. Try again.'],
+    },
+  },
+  // Christmas — Jingle Shells
+  {
+    id: 'santa', edition: 'christmas', name: 'Santa Cron', species: 'Santa Claus', color: 'var(--red)',
+    tagline: 'Scheduled for 0 0 25 12 *.',
+    lines: {
+      join: ['Santa Cron checks his watch. "HO HO HO! I only run once a year, so I am counting on you for the other 364 days."', 'Santa Cron has joined your party. He has already checked your command history twice.'],
+      correct: ['HO HO HO! Straight to the nice list.', 'Santa Cron adds a gold star to your crontab.', 'Santa Cron nods. "Exit code zero. That is the best present."'],
+      wrong: ['Santa Cron strokes his beard. "Not quite. Check it twice."', 'Ho… ho? Something in that command is on the naughty list.', 'Santa Cron suggests reading the description again. Slowly. Like a letter from a child.'],
+      idle: ['Santa Cron tip: `sort -u` is how the nice list stays tidy.', 'Santa Cron is checking his schedule: `0 0 25 12 *`. Still a while to go.', 'Santa Cron knows if you\'ve been grepping or not.'],
+      hint: ['Santa Cron unrolls a very long list and points at one line: {hint}', 'A note falls out of Santa\'s sack: {hint}'],
+      cheer: ['Santa Cron is cheering you on. Ho ho hold on, you have got this.', 'Santa Cron believes in you. He literally knows if you have been good.'],
+      gameover: ['Santa Cron has rescheduled you for another try. No coal this time.', 'Even Santa misses a chimney sometimes. Try again.'],
+    },
+  },
+  {
+    id: 'rudy', edition: 'christmas', name: 'Rudy', species: 'reindeer', color: 'var(--red)',
+    tagline: 'Red-nosed router. Forwards every packet home.',
+    lines: {
+      join: ['Rudy trots in, nose blinking. "I route packets by the light of my nose. Need a hand? A hoof?"', 'A reindeer joins your party. His nose is glowing at exactly the right brightness.'],
+      correct: ['Rudy\'s nose flashes green for a second. That means success. (He has RGB.)', 'Rudy does a little hoof-stomp of joy.', 'Packet delivered! Rudy is proud.'],
+      wrong: ['Rudy\'s nose blinks red. Okay, it always blinks red. But this time it means "check again".', 'Rudy took a wrong turn too. Recalculating route…', 'Not quite. Rudy suggests following the error message like a guiding light.'],
+      idle: ['Rudy tip: `traceroute` is not available here, but `|` routes output just fine.', 'Rudy is practising takeoffs on the status bar.', 'Rudy\'s favourite command is `tee`. It sends things two ways at once, like a good router.'],
+      hint: ['Rudy\'s nose blinks a hint in Morse: {hint}', 'Rudy nudges a hint toward you: {hint}'],
+      cheer: ['Rudy lights the way. No hints, only a glowing nose of support.', 'Rudy is cheering. Very loudly. For a reindeer.'],
+      gameover: ['Rudy\'s nose dims. Charge it up and try again.', 'Even the best router drops a packet sometimes.'],
+    },
+  },
+  {
+    id: 'jingles', edition: 'christmas', name: 'Jingles', species: 'elf', color: 'var(--green)',
+    tagline: 'Builds toys with make. Ships them with tar.',
+    lines: {
+      join: ['Jingles pops out of a present. "Hi! I build toys with `make` and ship them with `tar`. What are we building?"', 'An elf joins your party, bells jingling with every keystroke.'],
+      correct: ['Jingles rings every bell on his hat. Correct!', 'Jingles stamps your command: QUALITY CHECKED BY ELF #42.', 'Build succeeded! Jingles is wrapping it as we speak.'],
+      wrong: ['Jingles found a bug in the toy. Back to the workbench!', 'Make: *** [your_command] Error 1. Jingles is sure it is a small fix.', 'Not quite. Jingles suggests checking the instructions again. Elves always skip the instructions too.'],
+      idle: ['Jingles tip: `mkdir -p` makes all the parent folders at once. Elves love efficiency.', 'Jingles is wrapping a present with `tar -czf`. It is very neat.', 'Jingles\' hat bell is ringing at 440 Hz. A perfect A.'],
+      hint: ['Jingles checks the workshop manual: {hint}', 'Jingles whispers, bells softly ringing: {hint}'],
+      cheer: ['Jingles is cheering from the toy factory. No hints — elf\'s honour.', 'Jingles rings one bell for luck.'],
+      gameover: ['Jingles sweeps up the pieces. "Let\'s build it again!"', 'Even elves break a toy sometimes. Back to the workbench!'],
+    },
+  },
+  {
+    id: 'frosty', edition: 'christmas', name: 'Frosty', species: 'snowman', color: 'var(--sapphire)',
+    tagline: 'Cool under pressure. Try `man frosty`.',
+    lines: {
+      join: ['Frosty slides in. "Hi! I am cool under pressure. Literally. Please do not turn up the heat."', 'A snowman joins your party. The terminal feels a little chillier.'],
+      correct: ['Frosty is so happy his carrot nose wiggles. Cool command!', 'Ice work!', 'Frosty gives you a snowflake. Every one is unique, like your solution.'],
+      wrong: ['Frosty stays calm. "Chill. Read the error. Try again."', 'Not quite. Frosty suggests cooling down and checking the quotes.', 'Frosty is melting a little from the suspense.'],
+      idle: ['Frosty tip: `man` pages are cool reading. Try `man frosty`. (No, really, try it.)', 'Frosty is building a smaller Frosty. With `cp`.', 'Frosty\'s favourite command is `sleep`. He hibernates in July.'],
+      hint: ['Frosty writes a hint in the snow: {hint}', 'Frosty\'s frozen breath forms a hint: {hint}'],
+      cheer: ['Frosty is cheering coolly. No hints, just good vibes and cold air.', 'Frosty believes in you. Ice cold confidence.'],
+      gameover: ['Frosty melts a little. He will be back next snowfall.', 'Snow problem. Try again.'],
+    },
+  },
+  {
+    id: 'ginger', edition: 'christmas', name: 'Ginger', species: 'gingerbread cookie', color: 'var(--peach)',
+    tagline: 'Run, run, as fast as you can — she is a background job.',
+    lines: {
+      join: ['Ginger dashes across the screen. "Run, run, as fast as you can! You can\'t catch me — I\'m a background job!"', 'A gingerbread cookie joins your party. She will not stay still for the screenshot.'],
+      correct: ['Ginger does a victory lap around the terminal. Sweet!', 'Ginger gives you a gumdrop button. Correct!', 'That command was the icing on the cookie.'],
+      wrong: ['Ginger crumbles a bit. "Try again! Fresh batch!"', 'Not quite. Ginger suggests a different recipe — I mean pipeline.', 'Ginger ran past the right answer. Turn around and look again.'],
+      idle: ['Ginger is running in the background. `jobs` would list her if she stood still.', 'Ginger tip: `&` sends a command to the background. That is basically her lifestyle.', 'Ginger is decorating the prompt with icing. Please do not type over it.'],
+      hint: ['Ginger leaves a trail of crumbs that spells: {hint}', 'Ginger yells while running past: {hint}'],
+      cheer: ['Ginger is cheering at full speed. No hints, she is too fast to stop.', 'Ginger believes in you. Sweetly.'],
+      gameover: ['Ginger got caught. It happens. Bake another batch!', 'Ginger stops running for once. Let\'s go again.'],
+    },
+  },
+);
+
+export const COMPANION_BY_ID = Object.fromEntries(COMPANIONS.map(c => [c.id, c]));
+export const REGULAR_COMPANIONS = COMPANIONS.filter(c => !c.edition);

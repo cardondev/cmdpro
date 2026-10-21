@@ -1,0 +1,17 @@
+{
+  "name": "CMDPRO — the command line arcade",
+  "short_name": "CMDPRO",
+  "description": "A retro arcade game for learning the command line. Learn the shell one command at a time and earn gloriously ludicrous certificates.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#11111B",
+  "theme_color": "#1E1E2E",
+  "categories": ["games", "education", "developer"],
+  "icons": [
+    { "src": "assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/brand/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

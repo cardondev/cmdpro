@@ -1,0 +1,239 @@
+/* ============================================================
+   CMDPRO — Themes
+   Each theme re-declares the token contract from tokens.css
+   (UI surfaces + text + accent + pastels + terminal palette).
+   Set on <html data-theme="…">. Default = catppuccin-mocha.
+   The accent always stays "pastel green" — tuned per theme so
+   it keeps enough contrast (light theme uses a deeper green for
+   text and the pastel for fills via --accent-fill). The two vim
+   themes also recolour the status bar like vim's StatusLine.
+   ============================================================ */
+
+
+/* ---------- Catppuccin Mocha (default) ---------- */
+/* (declared in tokens.css together with :root) */
+
+/* ---------- Catppuccin Frappé ---------- */
+[data-theme="catppuccin-frappe"] {
+  --bg-crust: #232634; --bg-mantle: #292C3C; --bg-base: #303446;
+  --bg-s0: #414559; --bg-s1: #51576D; --bg-s2: #626880;
+  --ov0: #737994; --ov1: #838BA7; --ov2: #949CBB; --sub0: #A5ADCE; --sub1: #B5BFE2; --tx: #C6D0F5;
+  --accent: #A6D189; --accent-dim: rgba(166,209,137,0.15); --accent-glow: rgba(166,209,137,0.12);
+  --accent-ring: rgba(166,209,137,0.35); --accent-on: #232634;
+  --rosewater: #F2D5CF; --mauve: #CA9EE6; --lavender: #BABBF1; --blue: #8CAAEE; --sapphire: #85C1DC;
+  --teal: #81C8BE; --green: #A6D189; --yellow: #E5C890; --peach: #EF9F76; --maroon: #EA999C;
+  --red: #E78284; --pink: #F4B8E4;
+  --border-sub: rgba(198,208,245,0.05); --border-def: rgba(198,208,245,0.08); --border-str: rgba(198,208,245,0.13);
+  --term-bg: #303446; --term-fg: #C6D0F5; --term-dim: #838BA7; --term-cursor: #F2D5CF; --term-cursor-tx: #303446;
+  --term-sel: rgba(148,156,187,0.30); --term-path: #8CAAEE;
+  --ansi-0: #51576D; --ansi-1: #E78284; --ansi-2: #A6D189; --ansi-3: #E5C890; --ansi-4: #8CAAEE; --ansi-5: #F4B8E4;
+  --ansi-6: #81C8BE; --ansi-7: #B5BFE2; --ansi-8: #626880; --ansi-9: #E78284; --ansi-10: #A6D189; --ansi-11: #E5C890;
+  --ansi-12: #8CAAEE; --ansi-13: #F4B8E4; --ansi-14: #81C8BE; --ansi-15: #A5ADCE;
+}
+
+/* ---------- Rosé Pine Moon ---------- */
+[data-theme="rose-pine-moon"] {
+  --bg-crust: #191724; --bg-mantle: #1F1D2E; --bg-base: #232136;
+  --bg-s0: #2A273F; --bg-s1: #393552; --bg-s2: #44415A;
+  --ov0: #56526E; --ov1: #6E6A86; --ov2: #908CAA; --sub0: #ABA7C6; --sub1: #C8C5E3; --tx: #E0DEF4;
+  --accent: #A6E3A1; --accent-dim: rgba(166,227,161,0.14); --accent-glow: rgba(166,227,161,0.11);
+  --accent-ring: rgba(166,227,161,0.34); --accent-on: #191724;
+  --rosewater: #EA9A97; --mauve: #C4A7E7; --lavender: #C4A7E7; --blue: #9CCFD8; --sapphire: #3E8FB0;
+  --teal: #9CCFD8; --green: #A6E3A1; --yellow: #F6C177; --peach: #EA9A97; --maroon: #EB6F92;
+  --red: #EB6F92; --pink: #EA9A97;
+  --border-sub: rgba(224,222,244,0.05); --border-def: rgba(224,222,244,0.08); --border-str: rgba(224,222,244,0.13);
+  --term-bg: #232136; --term-fg: #E0DEF4; --term-dim: #6E6A86; --term-cursor: #C4A7E7; --term-cursor-tx: #232136;
+  --term-sel: rgba(110,106,134,0.35); --term-path: #9CCFD8;
+  --ansi-0: #393552; --ansi-1: #EB6F92; --ansi-2: #3E8FB0; --ansi-3: #F6C177; --ansi-4: #9CCFD8; --ansi-5: #C4A7E7;
+  --ansi-6: #EA9A97; --ansi-7: #E0DEF4; --ansi-8: #6E6A86; --ansi-9: #EB6F92; --ansi-10: #3E8FB0; --ansi-11: #F6C177;
+  --ansi-12: #9CCFD8; --ansi-13: #C4A7E7; --ansi-14: #EA9A97; --ansi-15: #E0DEF4;
+}
+
+/* ---------- Nord — Polar Night (dark) ---------- */
+[data-theme="nord-polar-night"] {
+  --bg-crust: #242933; --bg-mantle: #292E39; --bg-base: #2E3440;
+  --bg-s0: #3B4252; --bg-s1: #434C5E; --bg-s2: #4C566A;
+  --ov0: #616E88; --ov1: #727E97; --ov2: #8C96AB; --sub0: #B8C0CF; --sub1: #D8DEE9; --tx: #ECEFF4;
+  --accent: #A3BE8C; --accent-dim: rgba(163,190,140,0.15); --accent-glow: rgba(163,190,140,0.12);
+  --accent-ring: rgba(163,190,140,0.38); --accent-on: #2E3440;
+  --rosewater: #D08770; --mauve: #B48EAD; --lavender: #81A1C1; --blue: #81A1C1; --sapphire: #88C0D0;
+  --teal: #8FBCBB; --green: #A3BE8C; --yellow: #EBCB8B; --peach: #D08770; --maroon: #BF616A;
+  --red: #BF616A; --pink: #B48EAD;
+  --border-sub: rgba(216,222,233,0.06); --border-def: rgba(216,222,233,0.09); --border-str: rgba(216,222,233,0.14);
+  --term-bg: #2E3440; --term-fg: #D8DEE9; --term-dim: #616E88; --term-cursor: #D8DEE9; --term-cursor-tx: #2E3440;
+  --term-sel: rgba(67,76,94,0.85); --term-path: #88C0D0;
+  --ansi-0: #3B4252; --ansi-1: #BF616A; --ansi-2: #A3BE8C; --ansi-3: #EBCB8B; --ansi-4: #81A1C1; --ansi-5: #B48EAD;
+  --ansi-6: #88C0D0; --ansi-7: #E5E9F0; --ansi-8: #4C566A; --ansi-9: #BF616A; --ansi-10: #A3BE8C; --ansi-11: #EBCB8B;
+  --ansi-12: #81A1C1; --ansi-13: #B48EAD; --ansi-14: #8FBCBB; --ansi-15: #ECEFF4;
+}
+
+/* ---------- Nord — Snow Storm (light) ---------- */
+[data-theme="nord-snow-storm"] {
+  color-scheme: light;
+  --bg-crust: #D8DEE9; --bg-mantle: #E5E9F0; --bg-base: #ECEFF4;
+  --bg-s0: #FAFBFC; --bg-s1: #E5E9F0; --bg-s2: #D8DEE9;
+  --ov0: #A0A8B8; --ov1: #8A93A5; --ov2: #667085; --sub0: #4C566A; --sub1: #434C5E; --tx: #2E3440;
+  --accent: #3F6B2F; --accent-fill: #A3BE8C;
+  --accent-dim: rgba(94,140,74,0.14); --accent-glow: rgba(94,140,74,0.10); --accent-ring: rgba(63,107,47,0.38);
+  --accent-on: #2E3440;
+  --rosewater: #B5654F; --mauve: #8C5E86; --lavender: #5E81AC; --blue: #46699A; --sapphire: #3E7F8C;
+  --teal: #3E7F7C; --green: #3F6B2F; --yellow: #8A6D17; --peach: #A9583C; --maroon: #A83F4B;
+  --red: #A83F4B; --pink: #8C5E86;
+  --border-sub: rgba(46,52,64,0.07); --border-def: rgba(46,52,64,0.12); --border-str: rgba(46,52,64,0.2);
+  --shadow-card: 0 1px 8px rgba(46,52,64,0.08), 0 0 0 0.5px var(--border-def);
+  --shadow-up: 0 4px 24px rgba(46,52,64,0.14), 0 0 0 0.5px var(--border-def);
+  --shadow-glow: 0 0 24px var(--accent-glow);
+  --term-bg: #ECEFF4; --term-fg: #2E3440; --term-dim: #667085; --term-cursor: #2E3440; --term-cursor-tx: #ECEFF4;
+  --term-sel: rgba(136,192,208,0.40); --term-user: #3F6B2F; --term-path: #46699A;
+  --ansi-0: #2E3440; --ansi-1: #A83F4B; --ansi-2: #3F6B2F; --ansi-3: #8A6D17; --ansi-4: #46699A; --ansi-5: #8C5E86;
+  --ansi-6: #3E7F8C; --ansi-7: #4C566A; --ansi-8: #667085; --ansi-9: #BF616A; --ansi-10: #5E8C4A; --ansi-11: #A07F1E;
+  --ansi-12: #5E81AC; --ansi-13: #A0789A; --ansi-14: #4F8F98; --ansi-15: #3B4252;
+}
+
+/* ---------- Solarized (dark) ---------- */
+[data-theme="solarized"] {
+  --bg-crust: #00212B; --bg-mantle: #002631; --bg-base: #002B36;
+  --bg-s0: #073642; --bg-s1: #0E4452; --bg-s2: #2B5561;
+  --ov0: #586E75; --ov1: #657B83; --ov2: #7A8E94; --sub0: #839496; --sub1: #93A1A1; --tx: #EEE8D5;
+  --accent: #A6E3A1; --accent-dim: rgba(166,227,161,0.13); --accent-glow: rgba(166,227,161,0.10);
+  --accent-ring: rgba(166,227,161,0.34); --accent-on: #002B36;
+  --rosewater: #D33682; --mauve: #6C71C4; --lavender: #6C71C4; --blue: #268BD2; --sapphire: #2AA198;
+  --teal: #2AA198; --green: #859900; --yellow: #B58900; --peach: #CB4B16; --maroon: #DC322F;
+  --red: #DC322F; --pink: #D33682;
+  --border-sub: rgba(147,161,161,0.07); --border-def: rgba(147,161,161,0.11); --border-str: rgba(147,161,161,0.17);
+  --term-bg: #002B36; --term-fg: #839496; --term-dim: #586E75; --term-cursor: #93A1A1; --term-cursor-tx: #002B36;
+  --term-sel: rgba(7,54,66,0.95); --term-path: #268BD2;
+  --ansi-0: #073642; --ansi-1: #DC322F; --ansi-2: #859900; --ansi-3: #B58900; --ansi-4: #268BD2; --ansi-5: #D33682;
+  --ansi-6: #2AA198; --ansi-7: #EEE8D5; --ansi-8: #002B36; --ansi-9: #CB4B16; --ansi-10: #586E75; --ansi-11: #657B83;
+  --ansi-12: #839496; --ansi-13: #6C71C4; --ansi-14: #93A1A1; --ansi-15: #FDF6E3;
+}
+
+/* ---------- Terminal Green (P1 phosphor) ---------- */
+[data-theme="terminal-green"] {
+  --bg-crust: #000000; --bg-mantle: #030703; --bg-base: #050A06;
+  --bg-s0: #0B140C; --bg-s1: #112014; --bg-s2: #1A2E1D;
+  --ov0: #2F5A36; --ov1: #3E7748; --ov2: #55A061; --sub0: #6CC478; --sub1: #8EDC98; --tx: #B8FFC4;
+  --accent: #7CFF8F; --accent-dim: rgba(124,255,143,0.12); --accent-glow: rgba(124,255,143,0.22);
+  --accent-ring: rgba(124,255,143,0.42); --accent-on: #001A05;
+  --rosewater: #FF6EB4; --mauve: #BF5FFF; --lavender: #8B9FFF; --blue: #00B8FF; --sapphire: #00EFFF;
+  --teal: #00FFCC; --green: #33FF66; --yellow: #FFE600; --peach: #FF9500; --maroon: #FF4444;
+  --red: #FF5F5F; --pink: #FF6EB4;
+  --border-sub: rgba(51,255,102,0.06); --border-def: rgba(51,255,102,0.12); --border-str: rgba(51,255,102,0.22);
+  --term-bg: #030803; --term-fg: #33FF66; --term-dim: #1E9E3E; --term-cursor: #33FF66; --term-cursor-tx: #021004;
+  --term-sel: rgba(51,255,102,0.25); --term-user: #9DFFAA; --term-path: #33FFCC;
+  --term-glow: 0 0 6px rgba(51,255,102,0.55);
+  --ansi-0: #0B3D18; --ansi-1: #FF5F5F; --ansi-2: #33FF66; --ansi-3: #E6FF66; --ansi-4: #33CCFF; --ansi-5: #CC66FF;
+  --ansi-6: #33FFCC; --ansi-7: #B8FFC4; --ansi-8: #1F7A35; --ansi-9: #FF7B7B; --ansi-10: #7CFF8F; --ansi-11: #F2FF99;
+  --ansi-12: #66DDFF; --ansi-13: #DD99FF; --ansi-14: #66FFDD; --ansi-15: #E0FFE6;
+}
+
+/* ---------- Ember (P3 amber phosphor) ---------- */
+[data-theme="ember"] {
+  --bg-crust: #050200; --bg-mantle: #0B0601; --bg-base: #110A02;
+  --bg-s0: #1C1205; --bg-s1: #2A1B08; --bg-s2: #3A260C;
+  --ov0: #6B4A16; --ov1: #8A611D; --ov2: #AD7E2A; --sub0: #CC9636; --sub1: #E8B04C; --tx: #FFD68A;
+  --accent: #B8E0A0; --accent-dim: rgba(184,224,160,0.13); --accent-glow: rgba(255,176,0,0.16);
+  --accent-ring: rgba(184,224,160,0.38); --accent-on: #110A02;
+  --rosewater: #FFC8A8; --mauve: #E0A8FF; --lavender: #C8B8FF; --blue: #8FC9FF; --sapphire: #7FD7E0;
+  --teal: #9FE0C0; --green: #B8E0A0; --yellow: #FFE08A; --peach: #FF9F43; --maroon: #FF6B4A;
+  --red: #FF6B4A; --pink: #FF9FB0;
+  --border-sub: rgba(255,176,0,0.07); --border-def: rgba(255,176,0,0.12); --border-str: rgba(255,176,0,0.2);
+  --term-bg: #0D0700; --term-fg: #FFB000; --term-dim: #9C6A00; --term-cursor: #FFB000; --term-cursor-tx: #0D0700;
+  --term-sel: rgba(255,176,0,0.25); --term-user: #FFD27A; --term-path: #FFC94D;
+  --term-glow: 0 0 6px rgba(255,176,0,0.5);
+  --ansi-0: #3A2600; --ansi-1: #FF6B4A; --ansi-2: #E8C547; --ansi-3: #FFE08A; --ansi-4: #FFA64D; --ansi-5: #FF8FA3;
+  --ansi-6: #FFD27A; --ansi-7: #FFE9B8; --ansi-8: #6B4A16; --ansi-9: #FF8A6B; --ansi-10: #F5D76E; --ansi-11: #FFF0B3;
+  --ansi-12: #FFC27A; --ansi-13: #FFB3C1; --ansi-14: #FFE3A3; --ansi-15: #FFF6DD;
+}
+
+/* ---------- Tokyo Night (night) ---------- */
+[data-theme="tokyo-night"] {
+  --bg-crust: #13141C; --bg-mantle: #16161E; --bg-base: #1A1B26;
+  --bg-s0: #24283B; --bg-s1: #292E42; --bg-s2: #3B4261;
+  --ov0: #565F89; --ov1: #737AA2; --ov2: #828BB8; --sub0: #9AA5CE; --sub1: #A9B1D6; --tx: #C0CAF5;
+  --accent: #9ECE6A; --accent-dim: rgba(158,206,106,0.15); --accent-glow: rgba(158,206,106,0.12);
+  --accent-ring: rgba(158,206,106,0.36); --accent-on: #16161E;
+  --rosewater: #FF9E64; --mauve: #BB9AF7; --lavender: #9D7CD8; --blue: #7AA2F7; --sapphire: #7DCFFF;
+  --teal: #73DACA; --green: #9ECE6A; --yellow: #E0AF68; --peach: #FF9E64; --maroon: #DB4B4B;
+  --red: #F7768E; --pink: #FF007C;
+  --border-sub: rgba(192,202,245,0.05); --border-def: rgba(192,202,245,0.08); --border-str: rgba(192,202,245,0.13);
+  --term-bg: #1A1B26; --term-fg: #C0CAF5; --term-dim: #7F87B2; --term-cursor: #C0CAF5; --term-cursor-tx: #1A1B26;
+  --term-sel: rgba(81,92,126,0.45); --term-path: #7AA2F7;
+  --ansi-0: #414868; --ansi-1: #F7768E; --ansi-2: #9ECE6A; --ansi-3: #E0AF68; --ansi-4: #7AA2F7; --ansi-5: #BB9AF7;
+  --ansi-6: #7DCFFF; --ansi-7: #A9B1D6; --ansi-8: #565F89; --ansi-9: #FF899D; --ansi-10: #9FE044; --ansi-11: #FABA4A;
+  --ansi-12: #8DB0FF; --ansi-13: #C7A9FF; --ansi-14: #A4DAFF; --ansi-15: #C0CAF5;
+}
+
+/* ---------- Dracula ---------- */
+[data-theme="dracula"] {
+  --bg-crust: #191A21; --bg-mantle: #21222C; --bg-base: #282A36;
+  --bg-s0: #343746; --bg-s1: #424450; --bg-s2: #565970;
+  --ov0: #6272A4; --ov1: #7D87B5; --ov2: #959CC3; --sub0: #BDC1DA; --sub1: #D9DBE8; --tx: #F8F8F2;
+  --accent: #50FA7B; --accent-dim: rgba(80,250,123,0.14); --accent-glow: rgba(80,250,123,0.12);
+  --accent-ring: rgba(80,250,123,0.36); --accent-on: #282A36;
+  --rosewater: #FFB86C; --mauve: #FF79C6; --lavender: #BD93F9; --blue: #BD93F9; --sapphire: #8BE9FD;
+  --teal: #8BE9FD; --green: #50FA7B; --yellow: #F1FA8C; --peach: #FFB86C; --maroon: #FF6E6E;
+  --red: #FF5555; --pink: #FF79C6;
+  --border-sub: rgba(248,248,242,0.05); --border-def: rgba(248,248,242,0.08); --border-str: rgba(248,248,242,0.13);
+  --term-bg: #282A36; --term-fg: #F8F8F2; --term-dim: #8C95C0; --term-cursor: #F8F8F2; --term-cursor-tx: #282A36;
+  --term-sel: rgba(68,71,90,0.95); --term-path: #BD93F9;
+  --ansi-0: #21222C; --ansi-1: #FF5555; --ansi-2: #50FA7B; --ansi-3: #F1FA8C; --ansi-4: #BD93F9; --ansi-5: #FF79C6;
+  --ansi-6: #8BE9FD; --ansi-7: #F8F8F2; --ansi-8: #6272A4; --ansi-9: #FF6E6E; --ansi-10: #69FF94; --ansi-11: #FFFFA5;
+  --ansi-12: #D6ACFF; --ansi-13: #FF92DF; --ansi-14: #A4FFFF; --ansi-15: #FFFFFF;
+}
+
+/* ---------- Monokai ---------- */
+[data-theme="monokai"] {
+  --bg-crust: #171814; --bg-mantle: #1E1F1C; --bg-base: #272822;
+  --bg-s0: #383830; --bg-s1: #49483E; --bg-s2: #5B5A4E;
+  --ov0: #75715E; --ov1: #8F8A75; --ov2: #A59F85; --sub0: #CFCBB7; --sub1: #E6E3D7; --tx: #F8F8F2;
+  --accent: #A6E22E; --accent-dim: rgba(166,226,46,0.14); --accent-glow: rgba(166,226,46,0.12);
+  --accent-ring: rgba(166,226,46,0.36); --accent-on: #272822;
+  --rosewater: #FD971F; --mauve: #AE81FF; --lavender: #AE81FF; --blue: #66D9EF; --sapphire: #66D9EF;
+  --teal: #A1EFE4; --green: #A6E22E; --yellow: #E6DB74; --peach: #FD971F; --maroon: #F92672;
+  --red: #F92672; --pink: #F92672;
+  --border-sub: rgba(248,248,242,0.05); --border-def: rgba(248,248,242,0.08); --border-str: rgba(248,248,242,0.13);
+  --term-bg: #272822; --term-fg: #F8F8F2; --term-dim: #908B76; --term-cursor: #F8F8F0; --term-cursor-tx: #272822;
+  --term-sel: rgba(73,72,62,0.95); --term-path: #66D9EF;
+  --ansi-0: #49483E; --ansi-1: #F92672; --ansi-2: #A6E22E; --ansi-3: #E6DB74; --ansi-4: #66D9EF; --ansi-5: #AE81FF;
+  --ansi-6: #A1EFE4; --ansi-7: #F8F8F2; --ansi-8: #75715E; --ansi-9: #F92672; --ansi-10: #A6E22E; --ansi-11: #F4BF75;
+  --ansi-12: #66D9EF; --ansi-13: #AE81FF; --ansi-14: #A1EFE4; --ansi-15: #F9F8F5;
+}
+
+/* ---------- Vim Desert (vim's `desert` colorscheme) ---------- */
+[data-theme="vim-desert"] {
+  --bg-crust: #212121; --bg-mantle: #2A2A2A; --bg-base: #333333;
+  --bg-s0: #3F3F3F; --bg-s1: #4D4D4D; --bg-s2: #666666;
+  --ov0: #7F7F8C; --ov1: #98968A; --ov2: #ADAA97; --sub0: #C2BFA5; --sub1: #E0DDCB; --tx: #FFFFFF;
+  --accent: #89FB98; --accent-dim: rgba(137,251,152,0.14); --accent-glow: rgba(137,251,152,0.11);
+  --accent-ring: rgba(137,251,152,0.36); --accent-on: #333333;
+  --rosewater: #FFDE9B; --mauve: #DDA0DD; --lavender: #B0C4DE; --blue: #75A0FF; --sapphire: #6DCEEB;
+  --teal: #66CDAA; --green: #89FB98; --yellow: #F0E68C; --peach: #F4A460; --maroon: #CD5C5C;
+  --red: #FA8072; --pink: #FFA0A0;
+  --border-sub: rgba(194,191,165,0.07); --border-def: rgba(194,191,165,0.12); --border-str: rgba(194,191,165,0.2);
+  --term-bg: #333333; --term-fg: #FFFFFF; --term-dim: #ADAA97; --term-cursor: #F0E68C; --term-cursor-tx: #333333;
+  --term-sel: rgba(107,142,36,0.75); --term-path: #6DCEEB;
+  --statusbar-bg: #C2BFA5; --statusbar-fg: #333333;
+  --ansi-0: #7F7F8C; --ansi-1: #CD5C5C; --ansi-2: #9ACD32; --ansi-3: #BDB76B; --ansi-4: #75A0FF; --ansi-5: #EEEE00;
+  --ansi-6: #CD853F; --ansi-7: #C2BFA5; --ansi-8: #8A7F7F; --ansi-9: #FF0000; --ansi-10: #89FB98; --ansi-11: #F0E68C;
+  --ansi-12: #6DCEEB; --ansi-13: #FFDE9B; --ansi-14: #FFA0A0; --ansi-15: #FFFFFF;
+}
+
+/* ---------- Vim Classic (vim's default colours on a black terminal) ---------- */
+[data-theme="vim-classic"] {
+  --bg-crust: #000000; --bg-mantle: #0A0A0A; --bg-base: #000000;
+  --bg-s0: #141414; --bg-s1: #262626; --bg-s2: #3A3A3A;
+  --ov0: #5F5F5F; --ov1: #808080; --ov2: #9E9E9E; --sub0: #B8B8B8; --sub1: #D0D0D0; --tx: #E8E8E8;
+  --accent: #60FF60; --accent-dim: rgba(96,255,96,0.13); --accent-glow: rgba(96,255,96,0.14);
+  --accent-ring: rgba(96,255,96,0.40); --accent-on: #000000;
+  --rosewater: #FFA0A0; --mauve: #FF80FF; --lavender: #A0A0FF; --blue: #80A0FF; --sapphire: #1E90FF;
+  --teal: #40FFFF; --green: #60FF60; --yellow: #FFFF60; --peach: #FFA500; --maroon: #FFA0A0;
+  --red: #FF6060; --pink: #FF80FF;
+  --border-sub: rgba(255,255,255,0.07); --border-def: rgba(255,255,255,0.12); --border-str: rgba(255,255,255,0.2);
+  --term-bg: #000000; --term-fg: #E4E4E4; --term-dim: #8A8A8A; --term-cursor: #E4E4E4; --term-cursor-tx: #000000;
+  --term-sel: rgba(169,169,169,0.38); --term-path: #80A0FF;
+  --statusbar-bg: #E4E4E4; --statusbar-fg: #000000;
+  --ansi-0: #4D4D4D; --ansi-1: #CD0000; --ansi-2: #00CD00; --ansi-3: #CDCD00; --ansi-4: #5F87FF; --ansi-5: #CD00CD;
+  --ansi-6: #00CDCD; --ansi-7: #E5E5E5; --ansi-8: #7F7F7F; --ansi-9: #FF0000; --ansi-10: #00FF00; --ansi-11: #FFFF00;
+  --ansi-12: #87AFFF; --ansi-13: #FF00FF; --ansi-14: #00FFFF; --ansi-15: #FFFFFF;
+}
